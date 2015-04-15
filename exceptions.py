@@ -12,40 +12,40 @@ import sys
 
 # Exercicio 1
 
-##class MinhaExcecao(Exception): pass
-##class Exc2(MinhaExcecao): pass
-##
-##try:
-##    sys.exit()
-##    a = input("Entre com um numero ")
-##    b = input("Entre com outro numero ")
-##    if b==500:
-##        raise Exc2("Não pode dividir por 500")
-##    if b == 1000:
-##        raise MinhaExcecao("Não pode dividir por 1000")
-##    print a, "/", b, "=", a/b
-##    print "Essa linha nao executa se b=0"
-##except ZeroDivisionError:
-##    print "Ooops, divisão por zero"
-##except TypeError:
-##    print "Ooops, você não deu um número"
-##except MinhaExcecao,e:
-##    print e
-##except Exception,e:
-##    print "Deu um bode qualquer:",e
-##except:
-##    #raise Exc2("Ola")
-##    print "Deu um bode qualquer"
-##    #raise
-##    raise Exc2("Ola estou no bloco except")
-##else:
-##    print "Nenhum except disparou"
-##finally:
-##    print "sempre executado"
-##    #raise MinhaExcecao
-##    #raise MinhaExcecao("Mensagem que eu escrevi")
-##
-##print ("Olá, o programa continua")
+class MinhaExcecao(Exception): pass
+class Exc2(MinhaExcecao): pass
+
+try:
+    sys.exit()
+    a = input("Entre com um numero ")
+    b = input("Entre com outro numero ")
+    if b==500:
+        raise Exc2("Não pode dividir por 500")
+    if b == 1000:
+        raise MinhaExcecao("Não pode dividir por 1000")
+    print a, "/", b, "=", a/b
+    print "Essa linha nao executa se b=0"
+except ZeroDivisionError:
+    print "Ooops, divisão por zero"
+except TypeError:
+    print "Ooops, você não deu um número"
+except MinhaExcecao,e:
+    print e
+except Exception,e:
+    print "Deu um bode qualquer:",e
+except:
+    #raise Exc2("Ola")
+    print "Deu um bode qualquer"
+    #raise
+    raise Exc2("Ola estou no bloco except")
+else:
+    print "Nenhum except disparou"
+finally:
+    print "sempre executado"
+    #raise MinhaExcecao
+    #raise MinhaExcecao("Mensagem que eu escrevi")
+
+print ("Olá, o programa continua")
 
 # Exercicio 2
 
