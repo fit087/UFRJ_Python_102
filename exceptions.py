@@ -17,31 +17,31 @@ class Exc2(MinhaExcecao): pass
 
 try:
     sys.exit()
-    a = input("Entre com um numero ")
-    b = input("Entre com outro numero ")
+    a = eval(input("Entre com um numero "))
+    b = eval(input("Entre com outro numero "))
     if b==500:
         raise Exc2("Não pode dividir por 500")
     if b == 1000:
         raise MinhaExcecao("Não pode dividir por 1000")
-    print a, "/", b, "=", a/b
-    print "Essa linha nao executa se b=0"
+    print(a, "/", b, "=", a/b)
+    print("Essa linha nao executa se b=0")
 except ZeroDivisionError:
-    print "Ooops, divisão por zero"
+    print("Ooops, divisão por zero")
 except TypeError:
-    print "Ooops, você não deu um número"
-except MinhaExcecao,e:
-    print e
-except Exception,e:
-    print "Deu um bode qualquer:",e
+    print("Ooops, você não deu um número")
+except MinhaExcecao as e:
+    print(e)
+except Exception as e:
+    print("Deu um bode qualquer:",e)
 except:
     #raise Exc2("Ola")
-    print "Deu um bode qualquer"
+    print("Deu um bode qualquer")
     #raise
     raise Exc2("Ola estou no bloco except")
 else:
-    print "Nenhum except disparou"
+    print("Nenhum except disparou")
 finally:
-    print "sempre executado"
+    print("sempre executado")
     #raise MinhaExcecao
     #raise MinhaExcecao("Mensagem que eu escrevi")
 
@@ -67,8 +67,8 @@ class MinhaExcecao(Exception):
 def funcaoA():
     try:    
         funcaoB()
-    except MinhaExcecao, e: # para capturar a excecao
-        print e.x
+    except MinhaExcecao as e: # para capturar a excecao
+        print(e.x)
         e.x = 2
         raise
                
@@ -80,9 +80,9 @@ def funcaoB():
     
 try:
     funcaoA()
-except MinhaExcecao, e: # Captura a excecao mais externa
-    print e.x
-    print dir(e)
+except MinhaExcecao as e: # Captura a excecao mais externa
+    print(e.x)
+    print(dir(e))
     #e.x = 2
     #raise
 
