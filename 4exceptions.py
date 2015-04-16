@@ -2,10 +2,10 @@
 # 14/04/2015
 """
 Created on Tue Apr 14 10:20:32 2015
-    Lista de Exercicios:  Execoes
-    File:                         lista Excecoes.pdf
+    Lista de Exercicios:        Excecoes
+    File:                       lista Excecoes.pdf
     Curso:                      Computacao II (MAB225)
-    Proffessor:                Igor Leao
+    Proffessor:                 Igor Leao
 @author: Adolfo Emmanuel Correa Lopez
 """
 import sys
