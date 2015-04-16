@@ -68,7 +68,7 @@ def obtem_do_usuario(text):
  #           flag = False
     return entrada
 
-    
+
     
     
 def exemplo():
@@ -80,6 +80,18 @@ def exemplo():
                 break
             except:
                 print ('Digite somente numeros!!!')
+                
+# Exercise 3
+
+def soma(paramA, paramB):
+    try:
+        soma = int(paramA) + float(paramB)
+        return soma
+    except:
+        print ("Tipo de dados incorretos")
+        
+
+
 
 # Exercise 7
 
@@ -115,6 +127,24 @@ def exemplo():
 ## e.message
 
 if __name__ == '__main__':
+
+        # Exercise 2
+        
          #print (obtem_do_usuario("Ingresa un valor: "))
-         obtem_do_usuario("Ingresa un valor: ")
+         #obtem_do_usuario("Ingresa un valor: ")
          #exemplo()
+         
+         # Exercise 3
+         
+         
+        try:
+            x = -1
+            A = 1
+            B = 2
+            print ("soma com A =", A, "e B =", B)
+            x = soma(A,B)
+        except Exception as e:
+            print (e)
+        finally:
+            print ("O valor final de x e:", x )
+     
