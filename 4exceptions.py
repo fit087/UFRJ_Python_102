@@ -2,10 +2,10 @@
 # 14/04/2015
 """
 Created on Tue Apr 14 10:20:32 2015
-    Lista de Exercicios:        Excecoes
-    File:                       lista Excecoes.pdf
-    Curso:                      Computacao II (MAB225)
-    Proffessor:                 Igor Leao
+    Lista de Exercicios:         Excecoes
+    File:                               lista Excecoes.pdf
+    Curso:                           Computacao II (MAB225)
+    Proffessor:                     Igor Leao
 @author: Adolfo Emmanuel Correa Lopez
 """
 import sys
@@ -87,10 +87,17 @@ def soma(paramA, paramB):
     try:
         soma = int(paramA) + float(paramB)
         return soma
+    except ValueError:
+        print ("Error de Valor")
     except:
         print ("Tipo de dados incorretos")
         
 
+# Exercise 4
+
+class ExceptionA(Exception):pass
+class ExceptionB(ExceptionA):pass
+class ExceptionC(ExceptionB):pass
 
 
 # Exercise 7
@@ -140,9 +147,13 @@ if __name__ == '__main__':
         try:
             x = -1
             A = 1
+            #A = "1"
+            #A = "--"
+            #A = None
             B = 2
             print ("soma com A =", A, "e B =", B)
-            x = soma(A,B)
+            #x = soma(A,B)
+            x = soma(A)
         except Exception as e:
             print (e)
         finally:
