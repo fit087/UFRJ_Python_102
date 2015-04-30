@@ -3,9 +3,9 @@
 """
 Created on Sun Apr 12 18:00:32 2015
     Lista de Exercicios:    Orientacao a objetos 02
-    File:                           Lista_OO_2.pdf
-    Curso:                      Computacao II (MAB225)
-    Proffessor:                Igor Leao
+    File:                   Lista_OO_2.pdf
+    Curso:                  Computacao II (MAB225)
+    Professor:              Igor Leao
 @author: Adolfo Emmanuel Correa Lopez
 """
 
@@ -19,6 +19,7 @@ class fraction(object):
         """
         The constructor define the attributes numerator and denominator
         """
+        if dem == 0: raise ZeroDivisionError()
         self.__num = num
         self.__dem = dem
 
@@ -57,7 +58,7 @@ class fraction(object):
         return num1 * num2 // self._euclides_mdc(num1, num2)
 
 
-    def  irreducible_fraction(self):
+    def irreducible_fraction(self):
         divisor = self._euclides_mdc(self.__num,self.__dem)
         num = self.__num // divisor
         dem = self.__dem // divisor
@@ -93,26 +94,46 @@ class fraction(object):
     def __div__(self, op_2):
         #div = fraction(self.__num * op_2.__dem, self.__dem * op_2.__num)
         #div = div.irreducible_fraction()
-        return self * (not op_2)
+        #return self * (not op_2)
+        return self * op_2.inv()
+        #return self.__mul__(op_2.inv())
 
         #return div
-
-    def __neg__(self):
+# neg inversa()
+    #def __neg__(self):
+    #    aux = self.__num
+    #    self.__num = self.__dem
+    #    self.__dem = aux
+    #    return self
+    
+    def inv(self):
         aux = self.__num
         self.__num = self.__dem
         self.__dem = aux
         return self
 
+        
+    def __neg__(self):
+        return fraction(-self.__num, self.__dem)
+        
+# Funciona também mas achei melhor comparar os strings que representam as
+# frações irreducíveis pois se reduz o erro de precisão na divisão
+#    def __eq__(self, op_2):
+#        # return self.irreducible_fraction() == op_2.irreducible_fraction()
+#        # return cmp(self.irreducible_fraction(), op_2.irreducible_fraction())
+#        #if self.irreducible_fraction().__num == op_2.irreducible_fraction().__num \
+#        #    and self.irreducible_fraction().__dem == op_2.irreducible_fraction().__dem
+#        #    op = True
+#        #else:
+#        #        op = False
+#        #return op
+#        return self.get_cociente() == op_2.get_cociente()
+
     def __eq__(self, op_2):
-        # return self.irreducible_fraction() == op_2.irreducible_fraction()
-        # return cmp(self.irreducible_fraction(), op_2.irreducible_fraction())
-        #if self.irreducible_fraction().__num == op_2.irreducible_fraction().__num \
-        #    and self.irreducible_fraction().__dem == op_2.irreducible_fraction().__dem
-        #    op = True
-        #else:
-        #        op = False
-        #return op
-        return self.get_cociente() == op_2.get_cociente()
+        #return self.irreducible_fraction.__repr__() == op_2.irreducible_fraction.__repr__() # Não funciona
+        return repr(self.irreducible_fraction()) == repr(op_2.irreducible_fraction()) # Funciona
+        #return str(self.irreducible_fraction()) == str(op_2.irreducible_fraction()) # Funciona
+
 
 # ---------------Segundo Exercicio------------------
 class funcionario(object):
@@ -222,7 +243,7 @@ class camarote_sup(vip):
         super(camarote_sup, self).__init__(value, prima1)
         self.prima2 = prima2
     def location(self):
-        return "2ro andar do lado do palco
+        return "2ro andar do lado do palco"
     
     def get_value(self):
         return super(camarote_sup, self).get_value() + self.prima2
@@ -236,18 +257,28 @@ if __name__ == '__main__':
     TAN = fraction(15, 90)
     TAN1 = fraction(90, 15)
     TAN2 = fraction(5, 30)
+    #TAN3 = fraction(1,0)
+    TAN4 = fraction(3, 18)
     print ("TAN", TAN)
     print ("TAN1", TAN1)
+    print ("TAN2", TAN2)
+    #print ("TAN3", TAN3)
+    print ("TAN4", TAN4)
     print ("TAN.irreducible_fraction()", TAN.irreducible_fraction())
+    print ("TAN1.irreducible_fraction()", TAN1.irreducible_fraction())
+    print ("TAN2.irreducible_fraction()", TAN2.irreducible_fraction())
+    print ("TAN4.irreducible_fraction()", TAN4.irreducible_fraction())
     print ("TAN == TAN1", TAN == TAN1)
     print ("TAN == TAN2", TAN == TAN2)
+    print ("TAN == TAN4", TAN == TAN4)
     print ("not TAN2", (not TAN2))
-    inv_TAN2 = not TAN2
-    print ("inv_TAN2", inv_TAN2)
+    print ("-TAN2",  -TAN2)
+    
+    print ("TAN2.inv()", TAN2.inv())
     print ("TAN + TAN1", TAN + TAN1)
     print ("TAN - TAN1", TAN - TAN1)
     print ("TAN * TAN1", TAN * TAN1)
-    #print ("TAN / TAN1", TAN / TAN1)
+    #print ("TAN / TAN1", TAN / TAN1) # Só funciona em python 2.x.x
     
     print ("\n\n\n***************************")
     print ("\t2o Exercicio")
