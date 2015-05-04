@@ -116,8 +116,8 @@ class fraction(object):
     def __neg__(self):
         return fraction(-self.__num, self.__dem)
         
-# Funciona tamb√©m mas achei melhor comparar os strings que representam as
-# fra√ß√µes irreduc√≠veis pois se reduz o erro de precis√£o na divis√£o
+# Funciona tambÈm mas achei melhor comparar os strings que representam as
+# fraÁıes irreducÌveis pois se reduz o erro de precis„o na divis„o
 #    def __eq__(self, op_2):
 #        # return self.irreducible_fraction() == op_2.irreducible_fraction()
 #        # return cmp(self.irreducible_fraction(), op_2.irreducible_fraction())
@@ -130,7 +130,7 @@ class fraction(object):
 #        return self.get_cociente() == op_2.get_cociente()
 
     def __eq__(self, op_2):
-        #return self.irreducible_fraction.__repr__() == op_2.irreducible_fraction.__repr__() # N√£o funciona
+        #return self.irreducible_fraction.__repr__() == op_2.irreducible_fraction.__repr__() # N„o funciona
         return repr(self.irreducible_fraction()) == repr(op_2.irreducible_fraction()) # Funciona
         #return str(self.irreducible_fraction()) == str(op_2.irreducible_fraction()) # Funciona
 
@@ -247,7 +247,9 @@ class camarote_sup(vip):
     
     def get_value(self):
         return super(camarote_sup, self).get_value() + self.prima2
-    
+
+# ---------------Quinto Exercicio------------------
+
 
 if __name__ == '__main__':
     print ("\n\n\n***************************")
@@ -278,7 +280,7 @@ if __name__ == '__main__':
     print ("TAN + TAN1", TAN + TAN1)
     print ("TAN - TAN1", TAN - TAN1)
     print ("TAN * TAN1", TAN * TAN1)
-    #print ("TAN / TAN1", TAN / TAN1) # S√≥ funciona em python 2.x.x
+    #print ("TAN / TAN1", TAN / TAN1) # SÛ funciona em python 2.x.x
     
     print ("\n\n\n***************************")
     print ("\t2o Exercicio")
@@ -327,9 +329,38 @@ if __name__ == '__main__':
     
     ingresso_vip = vip(10, 5)
     ingresso_comum = normal(10)
+    ingresso_camsup = camarote_sup(10, 8, 6)
+    ingresso_caminf = camarote_inf(10, 8)
     
     print ("ingresso_comum.get_value\t", ingresso_comum.get_value())
-    print ("ingresso_vip.get_value\t", ingresso_vip.get_value())   
+    print ("ingresso_vip.get_value\t", ingresso_vip.get_value())
+
+    while True:
+        print ("\n\n\t***Menu: Venta de Ingressos***\n")
+        print ("\t\t1: Normal\n")
+        print ("\t\t2: VIP\n")
+        opcao = input("\t\tOpcao: ")
+        if opcao == "2":
+            print ("\n\t\t1: Camarote Superior\n")
+            print ("\t\t2: Camarote Inferior\n")
+            opcao = input("\t\tOpcao: ")
+            if opcao == "1":
+                print ("\n\tCamarote Superior\tValor: %.2f R$"%ingresso_camsup.get_value())
+            if opcao == "2":
+                print ("\n\tCamarote Inferior\tValor: %.2f R$"%ingresso_caminf.get_value())
+        else:
+            #print ("\n\tIngresso comum\tValor: ", ingresso_comum.get_value())
+            print ("\n\tIngresso comum\tValor: %.2f R$"%ingresso_comum.get_value())
+        opcao = input ("Desea comprar outro ingrasso? (Y/N): ")
+        if opcao.lower() == "y":
+            continue
+        break
+
+    print ("\n\n\n***************************")
+    print ("\t5o Exercicio")
+    print ("***************************\n")
+
+
     
 
 # print(TAN._fraction__num) # quebrando o encapsulament
