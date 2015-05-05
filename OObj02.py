@@ -249,6 +249,28 @@ class camarote_sup(vip):
         return super(camarote_sup, self).get_value() + self.prima2
 
 # ---------------Quinto Exercicio------------------
+class imovel(object):
+    def __init__(self, adress, price):
+        self.adress = adress
+        self.price = price
+
+class new(imovel):
+    def __init__(self, adress, price, ad_price):
+        imovel.__init__(adress, price)
+        self.__ad_price = ad_price
+    def set_ad_price(self, nw_ad_price):
+        self.__ad_price = nw_ad_price
+    def get_ad_price(self):
+        return self.__ad_price
+class old(imovel):
+    def __init__(self, adress, price, desconto):
+        imovel.__init__(adress, price)
+        self.__desconto = desconto
+    def set_ad_price(self, nw_desconto):
+        self.__desconto = nw_desconto
+    def get_ad_price(self):
+        return self.__desconto
+
 
 
 if __name__ == '__main__':
