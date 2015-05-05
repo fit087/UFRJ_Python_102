@@ -256,7 +256,8 @@ class imovel(object):
 
 class new(imovel):
     def __init__(self, adress, price, ad_price):
-        imovel.__init__(adress, price)
+        imovel.__init__(self, adress, price)
+        #imovel.__init__(adress, price)
         self.__ad_price = ad_price
     def set_ad_price(self, nw_ad_price):
         self.__ad_price = nw_ad_price
@@ -264,12 +265,73 @@ class new(imovel):
         return self.__ad_price
 class old(imovel):
     def __init__(self, adress, price, desconto):
-        imovel.__init__(adress, price)
+        imovel.__init__(self, adress, price)
+        #imovel.__init__(adress, price)
         self.__desconto = desconto
-    def set_ad_price(self, nw_desconto):
+    def set_desconto(self, nw_desconto):
         self.__desconto = nw_desconto
-    def get_ad_price(self):
+    def get_desconto(self):
         return self.__desconto
+
+# ---------------Sexto Exercicio------------------
+import random as rand
+
+
+
+class vehicle(object):
+    def __init__(self, code):
+        self._code = code
+    def locomover(self): pass
+    
+class air_vehicle(vehicle):
+    def fly(self):
+        return str(self)+" voando"
+    
+class military_vehicle(vehicle):
+    #def __init__(self):
+    def fire(self, alvo):
+        return str(self)+" atirando em "+str(alvo)
+    
+class land_vehicle(vehicle):
+    def run(self):
+        return str(self)+" andando"
+
+class civil_vehicle(vehicle):
+    def axcidental_hit(self, oth_vehicle):
+        return str(self)+" bateu com "+str(oth_vehicle)
+
+class boeing(air_vehicle, civil_vehicle):
+    "Avião de Passageiros"
+    def __init__(self, code, n_passengers):
+        vehicle.__init__(self, code)
+        self.__n_passengers = n_passengers
+    def __repr__(self):
+        return "Boeing "+str(self._code)
+        
+class f_22(air_vehicle, military_vehicle):
+    "Caça de combate"
+    def __init__(self, code, n_missil):
+        vehicle.__init__(self, code)
+        self.__n_missil = n_missil
+    def __repr__(self):
+        return "F-22 "+str(self._code)
+        
+class tank(military_vehicle, land_vehicle):
+    "Tanque"
+    def __init__(self, code, shield):
+        vehicle.__init__(self, code)
+        self.__shield = shield
+    def __repr__(self):
+        return "Tank "+str(self._code)
+        
+class moto(land_vehicle, civil_vehicle):
+    "Motocicleta"
+    def __init__(self, code, gasoil):
+        vehicle.__init__(self, code)
+        self.__gasoil = gasoil
+    def __repr__(self):
+        return "Moto "+str(self._code)
+        
 
 
 
@@ -357,32 +419,103 @@ if __name__ == '__main__':
     print ("ingresso_comum.get_value\t", ingresso_comum.get_value())
     print ("ingresso_vip.get_value\t", ingresso_vip.get_value())
 
-    while True:
-        print ("\n\n\t***Menu: Venta de Ingressos***\n")
-        print ("\t\t1: Normal\n")
-        print ("\t\t2: VIP\n")
-        opcao = input("\t\tOpcao: ")
-        if opcao == "2":
-            print ("\n\t\t1: Camarote Superior\n")
-            print ("\t\t2: Camarote Inferior\n")
+    #opcao = int(input("Desea excecutar o programa? "))
+    opcao = 0
+    if opcao:
+
+        while True:
+            print ("\n\n\t***Menu: Venta de Ingressos***\n")
+            print ("\t\t1: Normal\n")
+            print ("\t\t2: VIP\n")
             opcao = input("\t\tOpcao: ")
-            if opcao == "1":
-                print ("\n\tCamarote Superior\tValor: %.2f R$"%ingresso_camsup.get_value())
             if opcao == "2":
-                print ("\n\tCamarote Inferior\tValor: %.2f R$"%ingresso_caminf.get_value())
-        else:
-            #print ("\n\tIngresso comum\tValor: ", ingresso_comum.get_value())
-            print ("\n\tIngresso comum\tValor: %.2f R$"%ingresso_comum.get_value())
-        opcao = input ("Desea comprar outro ingrasso? (Y/N): ")
-        if opcao.lower() == "y":
-            continue
-        break
+                print ("\n\t\t1: Camarote Superior\n")
+                print ("\t\t2: Camarote Inferior\n")
+                opcao = input("\t\tOpcao: ")
+                if opcao == "1":
+                    print ("\n\tCamarote Superior\tValor: %.2f R$"%ingresso_camsup.get_value())
+                if opcao == "2":
+                    print ("\n\tCamarote Inferior\tValor: %.2f R$"%ingresso_caminf.get_value())
+            else:
+                #print ("\n\tIngresso comum\tValor: ", ingresso_comum.get_value())
+                print ("\n\tIngresso comum\tValor: %.2f R$"%ingresso_comum.get_value())
+            opcao = input ("Desea comprar outro ingrasso? (Y/N): ")
+            if opcao.lower() == "y":
+                continue
+            break
 
     print ("\n\n\n***************************")
     print ("\t5o Exercicio")
     print ("***************************\n")
 
+    imovel_velho = old("praia de copacabana", 50000, 10)
+    imovel_novo = new("Fundao", 30000, 10)
 
+    #opcao = int(input("Desea excecutar o programa? "))
+    opcao = 0
+    if opcao:
+
+        while True:
+            print ("\n\n\t***Menu: Venta de Inmovéis***\n")
+            print ("\t\t1: Novo\n")
+            print ("\t\t2: Velho\n")
+            opcao = input("\t\tOpcao: ")
+            if opcao == "1" or opcao == 1:
+                    print ("\n\tVc comprou um imovel novo\tValor: %.2f R$"%imovel_novo.get_ad_price())    
+            if opcao == "2" or opcao == 2:
+                print ("\n\t\tVc comprou um imovel velho\n", imovel_velho.get_desconto())
+            opcao = input ("Desea comprar outro imovel? (Y/N): ")
+            if opcao.lower() == "y":
+                continue
+            break
+
+
+    print ("\n\n\n***************************")
+    print ("\t6o Exercicio")
+    print ("***************************\n")
+
+    print (rand.randint(0,10))
+
+    #n_vehicles = int(input("Numero de vehiculos "))
+    n_vehicles = 10
+    lista=[0]*n_vehicles
+    for it in range(n_vehicles):
+        random_number = rand.randint(1,4)
+        if random_number == 1:
+            lista[it] = boeing(it, 200)
+        elif random_number == 2:
+            lista[it] = f_22(it, 5)
+        elif random_number == 3:
+            lista[it] = tank(it, 5)
+        elif random_number == 4:
+            lista[it] = moto(it, 5)
+
+    print(lista)
+#    print("\n\n",type(lista[0]))
+#    print("\n\n",dir(lista[0]))
+#    print("\n\n",dir(lista[0])[0])
+#    print("\n\n",dir(lista[0])[4])
+    #s = dir(lista[0])[4]
+    #print("\n\n",lista[0].s)
+    # Por turno
+    # duvida 1 turno pode ser a ação de 1 veiculo ou a ação de todos
+    # os veiculos e o jogo termina quando todos morirem.
+    for vehicle in lista:
+        acao = rand.randint(1,3)
+        #vehicle.dir(vehicle)[-1]
+        #if repr(type(vehicle)) == "<class '__main__.boeing'>":
+        if type(vehicle) is boeing:
+            print(vehicle.fly())
+            print(vehicle.axcidental_hit(vehicle))
+        elif type(vehicle) is f_22:
+            print(vehicle.fly())
+            print(vehicle.fire(vehicle))
+        elif type(vehicle) is tank:
+            print(vehicle.run())
+            print(vehicle.fire(vehicle))
+        elif type(vehicle) is moto:
+            print(vehicle.run())
+            print(vehicle.axcidental_hit(vehicle))
     
 
 # print(TAN._fraction__num) # quebrando o encapsulament
