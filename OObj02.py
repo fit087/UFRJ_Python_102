@@ -500,7 +500,7 @@ if __name__ == '__main__':
     # Por turno
     # duvida 1 turno pode ser a ação de 1 veiculo ou a ação de todos
     # os veiculos e o jogo termina quando todos morirem.
-    for vehicle in lista:
+    for vehicle in lista: # 1o Turno
         acao = rand.randint(1,3)
         #vehicle.dir(vehicle)[-1]
         #if repr(type(vehicle)) == "<class '__main__.boeing'>":
