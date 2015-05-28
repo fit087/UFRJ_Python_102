@@ -101,53 +101,72 @@ from Tkinter import *
 ##mainloop()
 
 # Pg. 43
-##class Application(Frame):
-##    def __init__(self, master=None):
-##        #Frame.__init__(self, master)
-##        R1 = Radiobutton(text="Option 1", value=1)
-##        R1.pack()
-##        R2 = Radiobutton(text="Option 2", value=2)
-##        R2.pack()
-##        R3 = Radiobutton(text="Option 3", value=3)
-##        R3.pack()
-##        #self.pack()
-##app = Application()
-##mainloop()
+# Option Button
+
+#class Application(Frame):
+#    def __init__(self, master=None):
+#        #Frame.__init__(self, master)
+#        R1 = Radiobutton(text="Option 1", value=1)
+#        R1.pack()
+#        R2 = Radiobutton(text="Option 2", value=2)
+#        R2.pack()
+#        R3 = Radiobutton(text="Option 3", value=3)
+#        R3.pack()
+#        #self.pack()
+#app = Application()
+#mainloop()
+
+# Erro os 2 ultimos botões ficam false
+#class Application(Frame):
+#    def __init__(self, master=None):
+#        #Frame.__init__(self, master)
+#        R1 = Radiobutton(text="Option 1", value=True)
+#        R1.pack()
+#        R2 = Radiobutton(text="Option 2", value=False)
+#        R2.pack()
+#        R3 = Radiobutton(text="Option 3", value=False)
+#        R3.pack()
+#        #self.pack()
+#app = Application()
+#mainloop()
 
 # Pg. 44
-##class Application(Frame):
-##    def __init__(self, master=None):
-##        Frame.__init__(self, master)
-##        Lb1 = Listbox()
-##        Lb1.insert(1, "Python")
-##        Lb1.insert(2, "Perl")
-##        Lb1.insert(3, "C")
-##        Lb1.insert(4, "PHP")
-##        Lb1.insert(5, "JSP")
-##        Lb1.insert(6, "Ruby")
-##        Lb1.pack()
-##        self.pack()
-##app = Application()
-##mainloop()
+# ListBox
+#class Application(Frame):
+#    def __init__(self, master=None):
+#        Frame.__init__(self, master)
+#        Lb1 = Listbox()
+#        Lb1.insert(1, "Python")
+#        Lb1.insert(2, "Perl")
+#        Lb1.insert(3, "C")
+#        Lb1.insert(4, "PHP")
+#        Lb1.insert(5, "JSP")
+#        Lb1.insert(6, "Ruby")
+#        Lb1.pack()
+#        self.pack()
+#app = Application()
+#mainloop()
 
 # Pg. 46
-##class Application():
-##    def __init__(self, master=None):
-##        #Frame.__init__(self, master)
-##        frame = Frame()
-##        frame.pack()
-##        bottomframe = Frame()
-##        bottomframe.pack(side = BOTTOM)
-##        redbutton = Button(frame, text="Red", fg="red", bg="green")
-##        redbutton.pack(side = LEFT)
-##        greenbutton = Button(frame, text="Brown", fg="brown")
-##        greenbutton.pack(side = LEFT)
-##        bluebutton = Button(frame, text="Blue", fg="blue")
-##        bluebutton.pack(side = LEFT)
-##        blackbutton = Button(bottomframe, text="Black", fg="black")
-##        blackbutton.pack(side = BOTTOM)
-##app = Application()
-##mainloop()
+# Colored Buttons
+# Usado para agrupar widgets. Após o Frame.__init__(self, master)
+#class Application():
+#    def __init__(self, master=None):
+#        #Frame.__init__(self, master)
+#        frame = Frame()
+#        frame.pack()
+#        bottomframe = Frame()
+#        bottomframe.pack(side = BOTTOM)
+#        redbutton = Button(frame, text="Red", fg="red", bg="green")
+#        redbutton.pack(side = LEFT)
+#        greenbutton = Button(frame, text="Brown", fg="brown")
+#        greenbutton.pack(side = LEFT)
+#        bluebutton = Button(frame, text="Blue", fg="blue")
+#        bluebutton.pack(side = LEFT)
+#        blackbutton = Button(bottomframe, text="Black", fg="black")
+#        blackbutton.pack(side = BOTTOM)
+#app = Application()
+#mainloop()
 
 # Pg. 47
 # Funciona como a tela de um pintor onde � poss�vel desenhar outras formas
@@ -249,15 +268,15 @@ from Tkinter import *
 ##top2 = Toplevel(bg="black")
 ##mainloop()
 
-class Application(Frame):
-    def __init__(self, master=None):
-        Frame.__init__(self, master)
-        self.msg = Label(self, text='Tiago')
-        self.msg.pack()
-        self.bye = Button(self, text="Bye", command=self.quit)
-        self.bye.pack()
-        self.pack()
-app = Application()
-app.master.title("Catalogo do Mato")
-app.master.geometry("100x200+900+500")
-mainloop()
+#class Application(Frame):
+#    def __init__(self, master=None):
+#        Frame.__init__(self, master)
+#        self.msg = Label(self, text='Tiago')
+#        self.msg.pack()
+#        self.bye = Button(self, text="Bye", command=self.quit)
+#        self.bye.pack()
+#        self.pack()
+#app = Application()
+#app.master.title("Catalogo do Mato")
+#app.master.geometry("100x200+900+500")
+#mainloop()
