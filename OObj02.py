@@ -276,7 +276,22 @@ class old(imovel):
 # ---------------Sexto Exercicio------------------
 import random as rand
 
-
+class code_generator(object):
+    def __init__(self):
+        self.atual = 0
+    def get_code(self):
+        self.atual += 1
+        return self.atual
+        
+        
+class random_fire(object):
+    #def __init__(self): pass
+    def fire_from_to(self, me, enemy_list):
+        ran_num = rand.randint(0, len(enemy_list) - 1)
+        while enemy_list[ran_num] is me:
+            ran_num = rand.randint(0, len(enemy_list) - 1)
+        return enemy_list[ran_num]
+    
 
 class vehicle(object):
     def __init__(self, code):
@@ -285,20 +300,20 @@ class vehicle(object):
     
 class air_vehicle(vehicle):
     def fly(self):
-        return str(self)+" voando"
+        return str(self) + " voando"
     
 class military_vehicle(vehicle):
     #def __init__(self):
     def fire(self, alvo):
-        return str(self)+" atirando em "+str(alvo)
+        return str(self) + " atirando em " + str(alvo)
     
 class land_vehicle(vehicle):
     def run(self):
-        return str(self)+" andando"
+        return str(self) + " andando"
 
 class civil_vehicle(vehicle):
     def axcidental_hit(self, oth_vehicle):
-        return str(self)+" bateu com "+str(oth_vehicle)
+        return str(self) + " bateu com " + str(oth_vehicle)
 
 class boeing(air_vehicle, civil_vehicle):
     "Avião de Passageiros"
@@ -306,7 +321,7 @@ class boeing(air_vehicle, civil_vehicle):
         vehicle.__init__(self, code)
         self.__n_passengers = n_passengers
     def __repr__(self):
-        return "Boeing "+str(self._code)
+        return "Boeing " + str(self._code)
         
 class f_22(air_vehicle, military_vehicle):
     "Caça de combate"
@@ -314,7 +329,7 @@ class f_22(air_vehicle, military_vehicle):
         vehicle.__init__(self, code)
         self.__n_missil = n_missil
     def __repr__(self):
-        return "F-22 "+str(self._code)
+        return "F-22 " + str(self._code)
         
 class tank(military_vehicle, land_vehicle):
     "Tanque"
@@ -322,7 +337,7 @@ class tank(military_vehicle, land_vehicle):
         vehicle.__init__(self, code)
         self.__shield = shield
     def __repr__(self):
-        return "Tank "+str(self._code)
+        return "Tank " + str(self._code)
         
 class moto(land_vehicle, civil_vehicle):
     "Motocicleta"
@@ -330,7 +345,7 @@ class moto(land_vehicle, civil_vehicle):
         vehicle.__init__(self, code)
         self.__gasoil = gasoil
     def __repr__(self):
-        return "Moto "+str(self._code)
+        return "Moto " + str(self._code)
         
 
 
@@ -474,20 +489,29 @@ if __name__ == '__main__':
     print ("\t6o Exercicio")
     print ("***************************\n")
 
-    print (rand.randint(0,10))
+    #print (rand.randint(0,10))
 
     #n_vehicles = int(input("Numero de vehiculos "))
     n_vehicles = 10
     lista=[0]*n_vehicles
+    code_gen_boing = code_generator()
+    code_gen_f22 = code_generator()
+    code_gen_tank = code_generator()
+    code_gen_moto = code_generator()
+
     for it in range(n_vehicles):
         random_number = rand.randint(1,4)
         if random_number == 1:
-            lista[it] = boeing(it, 200)
+            code_gen_boing.get_code()
+            lista[it] = boeing(it, 200)            
         elif random_number == 2:
+            code_gen_f22.get_code()
             lista[it] = f_22(it, 5)
         elif random_number == 3:
+            code_gen_tank.get_code()
             lista[it] = tank(it, 5)
         elif random_number == 4:
+            code_gen_moto.get_code()
             lista[it] = moto(it, 5)
 
     print(lista)
@@ -500,22 +524,39 @@ if __name__ == '__main__':
     # Por turno
     # duvida 1 turno pode ser a ação de 1 veiculo ou a ação de todos
     # os veiculos e o jogo termina quando todos morirem.
-    for vehicle in lista: # 1o Turno
-        acao = rand.randint(1,3)
-        #vehicle.dir(vehicle)[-1]
-        #if repr(type(vehicle)) == "<class '__main__.boeing'>":
-        if type(vehicle) is boeing:
-            print(vehicle.fly())
-            print(vehicle.axcidental_hit(vehicle))
-        elif type(vehicle) is f_22:
-            print(vehicle.fly())
-            print(vehicle.fire(vehicle))
-        elif type(vehicle) is tank:
-            print(vehicle.run())
-            print(vehicle.fire(vehicle))
-        elif type(vehicle) is moto:
-            print(vehicle.run())
-            print(vehicle.axcidental_hit(vehicle))
     
-
+    victim = random_fire()
+    
+    turn_num = 1
+    while len(lista)>1:
+    
+        for vehicle in lista: # 1o Turno
+            #acao = rand.randint(1,3)
+            print ("Turn number ", turn_num)
+            #vehicle.dir(vehicle)[-1]
+            #if repr(type(vehicle)) == "<class '__main__.boeing'>":
+            if type(vehicle) is boeing:
+                print(vehicle.fly())
+                ele = victim.fire_from_to(vehicle, lista)
+                print(vehicle.axcidental_hit(ele))
+                list.remove(lista, ele)
+            elif type(vehicle) is f_22:
+                print(vehicle.fly())
+                ele = victim.fire_from_to(vehicle, lista)
+                print(vehicle.fire(ele))
+            elif type(vehicle) is tank:
+                print(vehicle.run())
+                ele = victim.fire_from_to(vehicle, lista)
+                print(vehicle.fire(ele))
+            elif type(vehicle) is moto:
+                print(vehicle.run())
+                ele = victim.fire_from_to(vehicle, lista)
+                print(vehicle.axcidental_hit(ele))
+            
+        turn_num += 1
+        
+    if not lista:
+        print ("The list is empty")
+    
+    print("The winner is", lista)
 # print(TAN._fraction__num) # quebrando o encapsulament
