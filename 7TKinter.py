@@ -7,6 +7,7 @@ Created on Tue May 26 10:20:32 2015
     File:                       Slide TKinter.pdf
     Curso:                      Computacao II (MAB225)
     Proffessor:                 Igor Leao
+    Slide:                      Thiago Cruz de França
 @author: Adolfo Emmanuel Correa Lopez
 """
 
@@ -280,3 +281,124 @@ from Tkinter import *
 #app.master.title("Catalogo do Mato")
 #app.master.geometry("100x200+900+500")
 #mainloop()
+
+# ......................................................................
+# 02/06/2015
+
+# .....................................
+# Redimensionando
+# .....................................
+
+# Pg. 61
+##top = Frame(); top.pack()
+###top.configure(relief="groove", border=10)#, font="Times 24 bold")
+##top["relief"]="groove"
+##top["border"]=10
+##a = Label (top, text="A"); a.pack (side="left")
+##b = Label (top, text="B"); b.pack (side="bottom")
+##c = Label (top, text="C"); c.pack (side="right")
+##d = Label (top, text="D"); d.pack (side="top")
+##for widget in (a,b,c,d):
+##    widget.configure(relief="groove", border=10, font="Times 24 bold")
+##top.mainloop()
+
+
+# Pg. 63
+##top = Frame(); top.pack()#top.pack(fill="y")
+##top.configure(relief="groove", border=10)
+##a = Label (top, text="A"); a.pack (side="left", fill="y")
+##b = Label (top, text="B"); b.pack (side="bottom", fill="x")
+##c = Label (top, text="C"); c.pack (side="right")
+##d = Label (top, text="D"); d.pack (side="top")
+##for widget in (a,b,c,d):
+##    widget.configure(relief="groove", border=10, font="Times 24 bold")
+##top.mainloop()
+
+# Pg. 64
+# Exercício 1 (executar e maximizar janela)
+###from Tkinter import *
+##top = Frame()
+###top.pack()
+###top.pack(fill='both')#, expand=True)
+###top.pack(expand=True)
+##top.pack(fill='both', expand=True)
+##top.configure(relief="groove", border=10)
+##a = Label (top, text="A")
+##a.pack(side="left",fill="y")
+##b = Label (top, text="B")
+##b.pack (side="bottom",fill="x")
+##c = Label (top, text="C")
+##c.pack (side="right")
+##d = Label (top, text="D")
+##d.pack (side="top")
+##
+##for widget in (a,b,c,d):
+##    widget.configure(relief="groove", border=10, font="Times 24 bold")
+##top.mainloop()
+
+# Pg. 65
+# Exercício 2 (executar e maximizar janela)
+##top = Frame()
+##top.pack(fill='both', expand=True)
+##a = Label (top, text="A")
+##a.pack (side="left",expand=True,fill="y")
+##b = Label (top, text="B")
+##b.pack (side="bottom",expand=True,fill="both")
+##c = Label (top, text="C")
+##c.pack (side="right")
+##d = Label (top, text="D")
+##d.pack (side="top")
+##for widget in (a,b,c,d):
+##    widget.configure(relief="groove", border=10, font="Times 24 bold")
+##top.mainloop()
+
+# Pg. 66
+# Usando Frames para Auxiliar Layout
+# Exercício 3: executar e ampliar janela
+##top = Frame() ; top.pack(fill='both', expand=True)
+##f = Frame (top); f.pack (fill='x') # preenche o espaço em x
+##a = Label (f, text="A")
+##b = Label (f, text="B")
+##c = Label (f, text="C")
+##d = Label (top, text="D")
+##for w in (a,b,c,d):
+##    w.configure(relief="groove", border=10, font="Times 24 bold")
+##    w.pack(side="left", expand=True, fill="both")
+##top.mainloop()
+
+# ...............................................
+# Programacao com Eventos
+# ...............................................
+
+
+# Pg. 69
+
+# Exemplo
+# Execute e clique no botão
+##def inc():
+##    n=int(rotulo.configure("text")[4])+1
+##    print rotulo.configure("text") # Retorna os datos que o configure coleta do widget
+##    rotulo.configure(text=str(n))
+##b = Button(text="Incrementa",command=inc)
+##b.pack()
+##rotulo = Label(text="0")
+##rotulo.pack()
+##mainloop()
+
+# Eventos e Bind
+# ..............................
+
+# Pg. 71
+def clica (e):
+    txt = "Mouse clicado em\n%d,%d"%(e.x,e.y)
+    r.configure(text=txt)
+r = Label()
+r.pack(expand=True, fill="both")
+r.master.geometry("200x200") # determina o tamanho do label
+r.bind("<Button-1>", clica)  # Chama a um evento nao principal
+r.bind("<Button-2>", clica)
+r.bind("<Button-3>", clica)
+mainloop()
+
+
+
