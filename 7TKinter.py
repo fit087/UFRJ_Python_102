@@ -283,6 +283,34 @@ from Tkinter import *
 #mainloop()
 
 # ......................................................................
+# 08/06/2015
+
+# Pg. 55
+
+#class Application(Frame):
+#    def __init__(self, master = None):
+#        
+#        Frame.__init__(self, master)
+#        self.msg = Label(self, text = 'Tiago')
+#        self.msg.pack()
+#        self.bye = Button(self, text="Bye", command=self.quit)
+#        self.bye.pack()
+#        self.pack()
+#app = Application()
+#app.master.title("Calango do Mato")
+#app.master.geometry("100x200+900+500")
+#mainloop()
+ 
+# Pg. 59
+
+#top = Frame()
+#top.pack()
+#rotulo = Label(top, text="Rótulo Exemplo", foreground="blue")
+#rotulo.pack()
+#rotulo.configure(relief="ridge", font="Arial 24 bold", border=5, background="yellow")
+#mainloop() 
+
+# ......................................................................
 # 02/06/2015
 
 # .....................................
@@ -375,30 +403,51 @@ from Tkinter import *
 
 # Exemplo
 # Execute e clique no botão
-##def inc():
-##    n=int(rotulo.configure("text")[4])+1
-##    print rotulo.configure("text") # Retorna os datos que o configure coleta do widget
-##    rotulo.configure(text=str(n))
-##b = Button(text="Incrementa",command=inc)
-##b.pack()
-##rotulo = Label(text="0")
-##rotulo.pack()
-##mainloop()
+
+#def inc():
+#    n=int(rotulo.configure("text")[4])+1
+#    print rotulo.configure("text") # Retorna os datos que o configure coleta do widget
+#    rotulo.configure(text=str(n))
+#b = Button(text="Incrementa",command=inc)
+#b.pack()
+#rotulo = Label(text="0")
+#rotulo.pack()
+#mainloop()
+
+class ex_pg69(Tk):
+    def inc(self):
+    #def inc():
+        n=int(rotulo.configure("text")[4])+1
+        print rotulo.configure("text") # Retorna os datos que o configure coleta do widget
+        rotulo.configure(text=str(n))
+    b = Button(text="Incrementa",command=inc)
+    b.pack()
+    rotulo = Label(text="0")
+    rotulo.pack()
+    mainloop()
+    
+main_window = Tk()
+#win69 = Tk(main_window)
+#ex_pag69 = ex_pg69(win69)
+ex_pag69 = ex_pg69(main_window)
+pg69 = Button(main_window, text = "Exemplo pg. 69", command = ex_pag69.inc)
+pg69.pack()
+mainloop()
 
 # Eventos e Bind
 # ..............................
 
 # Pg. 71
-def clica (e):
-    txt = "Mouse clicado em\n%d,%d"%(e.x,e.y)
-    r.configure(text=txt)
-r = Label()
-r.pack(expand=True, fill="both")
-r.master.geometry("200x200") # determina o tamanho do label
-r.bind("<Button-1>", clica)  # Chama a um evento nao principal
-r.bind("<Button-2>", clica)
-r.bind("<Button-3>", clica)
-mainloop()
+#def clica (e):
+#    txt = "Mouse clicado em\n%d,%d"%(e.x,e.y)
+#    r.configure(text=txt)
+#r = Label()
+#r.pack(expand=True, fill="both")
+#r.master.geometry("200x200") # determina o tamanho do label
+#r.bind("<Button-1>", clica)  # Chama a um evento nao principal
+#r.bind("<Button-2>", clica)
+#r.bind("<Button-3>", clica)
+#mainloop()
 
 
 
