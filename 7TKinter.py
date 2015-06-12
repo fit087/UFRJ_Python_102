@@ -404,15 +404,15 @@ from Tkinter import *
 # Exemplo
 # Execute e clique no botão
 
-#def inc():
-#    n=int(rotulo.configure("text")[4])+1
-#    print rotulo.configure("text") # Retorna os datos que o configure coleta do widget
-#    rotulo.configure(text=str(n))
-#b = Button(text="Incrementa",command=inc)
-#b.pack()
-#rotulo = Label(text="0")
-#rotulo.pack()
-#mainloop()
+##def inc():
+##    n=int(rotulo.configure("text")[4])+1
+##    print rotulo.configure("text") # Retorna os datos que o configure coleta do widget
+##    rotulo.configure(text=str(n))
+##b = Button(text="Incrementa",command=inc)
+##b.pack()
+##rotulo = Label(text="0")
+##rotulo.pack()
+##mainloop()
 
 class ex_pg69(Tk):
     def inc(self):
@@ -438,16 +438,116 @@ mainloop()
 # ..............................
 
 # Pg. 71
-#def clica (e):
-#    txt = "Mouse clicado em\n%d,%d"%(e.x,e.y)
-#    r.configure(text=txt)
-#r = Label()
-#r.pack(expand=True, fill="both")
-#r.master.geometry("200x200") # determina o tamanho do label
-#r.bind("<Button-1>", clica)  # Chama a um evento nao principal
-#r.bind("<Button-2>", clica)
-#r.bind("<Button-3>", clica)
-#mainloop()
+##def clica (e):
+##    txt = "Mouse clicado em\n%d,%d"%(e.x,e.y)
+##    r.configure(text=txt)
+##r = Label()
+##r.pack(expand=True, fill="both")
+##r.master.geometry("200x200") # determina o tamanho do label
+###r.bind("<Button-1>", clica)  # Chama a um evento nao principal
+####r.bind("<Button-2>", clica)
+####r.bind("<Button-3>", clica)
+###r.bind("<Motion>", clica)
+##r.bind("<B1-Motion>", clica)
+##mainloop()
+
+# 09/06/2015......................................
+
+# Pg. 75
+
+##def clica (e):
+## txt = "Mouse clicado em\n%d,%d"%(e.x,e.y)
+## r.configure(text=txt)
+## r.focus()
+##def tecla(e):
+## txt="Keysym=%s\nKeycode=%s\nChar=%s"%(e.keysym,e.keycode,e.char)
+## r.configure(text=txt)
+##r = Label()
+##r.pack(expand=True, fill="both")
+##r.master.geometry("200x200")
+##r.bind("<Button-1>", clica)
+##r.bind("<Key>", tecla)
+##mainloop()
+
+
+# Pg. 78
+
+##def abrir(): print "abrir"
+##def salvar(): print "salvar"
+##def ajuda(): print "ajuda"
+##
+##top=Tk()
+##principal=Menu(top)
+##top.configure(menu=principal)
+##
+##arquivo=Menu(principal, tearoff = False) # tearoff = False tira trasejado
+##arquivo.add_command(label="Abrir",command=abrir)
+##arquivo.add_command(label="Salvar",command=salvar)
+##
+##principal.add_cascade(label="Arquivo",menu=arquivo)
+### Tipos de Menu
+### popup botao direito
+### popdown
+### cascade
+### Tirar trasejado
+###   tearoff=False
+##principal.add_command(label="Ajuda",command=ajuda)
+##
+##mainloop()
 
 
 
+# Pg. 80
+
+##def alo():
+##    print "Alo!"
+##
+##root = Tk()
+##menu = Menu(root, tearoff=0)
+##menu.add_command(label="Alo 1", command=alo)
+##menu.add_command(label="Alo 2", command=alo)
+##
+##def popup(e):
+##    menu.post(e.x_root, e.y_root)
+##
+##frame = Frame(root, width=200, height=200)
+##frame.pack()
+##frame.bind("<Button-3>", popup)
+##mainloop()
+
+
+# Pg. 83
+
+##root = Tk()
+##soma = DoubleVar(root)
+##parcela = DoubleVar(root)
+##def aritmetica (e):
+##    soma.set(soma.get()+parcela.get())
+##lsoma = Label(textvar=soma) # Atualiza automaticamente
+##eparcela = Entry(textvar=parcela) # Transforma automaticamente double to string
+##eparcela.bind("<Return>", aritmetica) # Apertar Enter
+##lsoma.pack()
+##eparcela.pack()
+##mainloop()
+
+#..............................................
+
+# Pg. 89
+
+root=Tk()
+cor = StringVar(root)
+cor.set("black")
+l = Label(background=cor.get())
+l.pack(fill='both',expand=True)
+
+def pinta():
+    l.configure(background=cor.get())
+    
+for txt,val in (("preto","black"),
+                ("vermelho","red"),
+                ("azul","blue"),
+                ("verde","green")):
+    
+    Radiobutton(text=txt,value=val,variable=cor,command=pinta).pack(anchor=W)
+    
+mainloop()
