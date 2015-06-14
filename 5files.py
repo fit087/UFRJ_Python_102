@@ -37,11 +37,25 @@ def print_dic(lista_dic):
     "Print in format of dictionary"
     for i, j in enumerate(lista_dic):
         print chr(i + ord("a")) + ":" + str(j)
-
+        
+    # Exercise 2
+def visualize_file(file_named):
+    print (open(file_named).readlines())
+    
 if __name__ == '__main__':
 
-    # Exercise 1
-    
+ # Exercise 1
+    print ("\n\n\n***************************")
+    print ("\t1o Exercicio")
+    print ("***************************\n")
     random_txt()
     valores = conta()
     print_dic(valores)
+    
+    # Exercise 2
+    print ("\n\n\n***************************")
+    print ("\t2o Exercicio")
+    print ("***************************\n")
+    
+    visualize_file("5file.txt")
+    #visualize_file(NomeArquivo) 
