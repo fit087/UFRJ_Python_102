@@ -12,7 +12,8 @@ Created on Tue May 26 10:20:32 2015
 """
 
 # 1st part
-from Tkinter import *
+#from Tkinter import *
+from tkinter import *
 
 #Pg. 34
 ### 2nd part
@@ -414,25 +415,25 @@ from Tkinter import *
 ##rotulo.pack()
 ##mainloop()
 
-class ex_pg69(Tk):
-    def inc(self):
-    #def inc():
-        n=int(rotulo.configure("text")[4])+1
-        print rotulo.configure("text") # Retorna os datos que o configure coleta do widget
-        rotulo.configure(text=str(n))
-    b = Button(text="Incrementa",command=inc)
-    b.pack()
-    rotulo = Label(text="0")
-    rotulo.pack()
-    mainloop()
-    
-main_window = Tk()
-#win69 = Tk(main_window)
-#ex_pag69 = ex_pg69(win69)
-ex_pag69 = ex_pg69(main_window)
-pg69 = Button(main_window, text = "Exemplo pg. 69", command = ex_pag69.inc)
-pg69.pack()
-mainloop()
+#class ex_pg69(Tk):
+#    def inc(self):
+#    #def inc():
+#        n=int(rotulo.configure("text")[4])+1
+#        print rotulo.configure("text") # Retorna os datos que o configure coleta do widget
+#        rotulo.configure(text=str(n))
+#    b = Button(text="Incrementa",command=inc)
+#    b.pack()
+#    rotulo = Label(text="0")
+#    rotulo.pack()
+#    mainloop()
+#    
+#main_window = Tk()
+##win69 = Tk(main_window)
+##ex_pag69 = ex_pg69(win69)
+#ex_pag69 = ex_pg69(main_window)
+#pg69 = Button(main_window, text = "Exemplo pg. 69", command = ex_pag69.inc)
+#pg69.pack()
+#mainloop()
 
 # Eventos e Bind
 # ..............................
@@ -534,20 +535,100 @@ mainloop()
 
 # Pg. 89
 
-root=Tk()
-cor = StringVar(root)
-cor.set("black")
-l = Label(background=cor.get())
-l.pack(fill='both',expand=True)
+#root=Tk()
+#cor = StringVar(root)
+#cor.set("black")
+#l = Label(background=cor.get())
+#l.pack(fill='both',expand=True)
+#
+#def pinta():
+#    l.configure(background=cor.get())
+#    
+#for txt,val in (("preto","black"),
+#                ("vermelho","red"),
+#                ("azul","blue"),
+#                ("verde","green")):
+#    
+#    Radiobutton(text=txt,value=val,variable=cor,command=pinta).pack(anchor=W)
+#    
+#mainloop()
 
-def pinta():
-    l.configure(background=cor.get())
-    
-for txt,val in (("preto","black"),
-                ("vermelho","red"),
-                ("azul","blue"),
-                ("verde","green")):
-    
-    Radiobutton(text=txt,value=val,variable=cor,command=pinta).pack(anchor=W)
-    
+#..............................................
+
+# Pg. 91
+
+#root=Tk()
+#cor = StringVar(root)
+#cor.set("black")
+#l = Label(background=cor.get())
+#l.pack(fill='both',expand=True)
+#
+#def pinta():
+#    l.configure(background=cor.get())
+#    
+#for txt,val in (("preto","black"),
+#                ("vermelho","red"),
+#                ("azul","blue"),
+#                ("verde","green")):
+#    Radiobutton(text=txt,value=val,variable=cor, command=pinta,indicatoron=False).pack(fill='x')
+#    
+#mainloop()
+
+#..............................................
+
+# Pg. 94
+
+
+#def insere():
+#    e.insert(INSERT,"*")
+# 
+#def limpa():
+##    e.delete(INSERT,END)
+#    e.delete(0,END)
+#    
+#e=Entry(font="Arial 24")
+#i=Button(text="Insere*",command=insere)
+#l=Button(text="Limpa",command=limpa)
+#e.pack()
+#
+#for w in (i,l):
+#    w.pack(side='left')
+#    
+#mainloop()
+
+#..............................................
+
+# Pg. 96
+
+#lb = Listbox()
+#lb.pack(side=LEFT,expand=True,fill="both")
+#sb = Scrollbar()
+#sb.pack(side=RIGHT,fill="y")
+#sb.configure(command=lb.yview)
+#lb.configure(yscrollcommand=sb.set)
+#
+#for i in range(100):
+#    lb.insert(END,i)
+#mainloop()
+
+#..............................................
+
+# Pg. 98
+
+c = Canvas()
+c.pack()
+
+o = c.create_oval(1,1,200,100,outline="blue", width=5,fill="red")
+widget = Button(text="Tk Canvas")
+w = c.create_window(10,120,window=widget,anchor=W)
+l = c.create_line(100,0,120,30,50,60,100,120,fill="black",width=2)
+r = c.create_rectangle(40,150,100,200,fill="white")
+#img = PhotoImage(file="./NelsonHaha2.gif")
+#img = PhotoImage(file="./0398contr2.jpg")
+img = PhotoImage(file="./0398contr2.gif")
+#img = PhotoImage(file="C:/Users/adolfo.correa/Documents/GitHub/UFRJ_Computacao_2/0398contr2.jpg")
+i = c.create_image (150,150,image=img,anchor=NW)
+a = c.create_arc (150,90,250,190,start=30,extent=60, 
+                  outline="green",fill="orange")
+t = c.create_text(200,35,text="Texto\nTexto",font="Arial 22")
 mainloop()
