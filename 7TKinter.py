@@ -197,23 +197,24 @@ from tkinter import *
 
 # Pg. 49
 # Um painel de menu. Implementa menus de janela, pulldowns e popups
-##class Application(Frame):
-##    def __init__(self, master=Tk()):
-##        Frame.__init__(self, master)
-##        menubar = Menu()
-##        filemenu = Menu(menubar, tearoff=0)
-##        filemenu.add_command(label="New")
-##        filemenu.add_command(label="Open")
-##        filemenu.add_command(label="Save")
-##        filemenu.add_command(label="Save as...")
-##        filemenu.add_command(label="Close")
-##        filemenu.add_separator()
-##        filemenu.add_command(label="Exit", command=quit)
-##        menubar.add_cascade(label="File", menu=filemenu)
-##        master.config(menu=menubar)
-##        self.pack()
-##app = Application()
-##mainloop()
+class Application(Frame):
+    def __init__(self, master=Tk()):
+        Frame.__init__(self, master)
+        menubar = Menu()
+        filemenu = Menu(menubar, tearoff=0)
+        filemenu.add_command(label="New")
+        filemenu.add_command(label="Open")
+        filemenu.add_command(label="Save")
+        filemenu.add_command(label="Save as...")
+        filemenu.add_command(label="Close")
+        filemenu.add_separator()
+        filemenu.add_command(label="Exit", command=quit)
+        menubar.add_cascade(label="File", menu=filemenu)
+        master.config(menu=menubar)
+        self.pack()
+app = Application()
+#mainloop()
+app.mainloop()
 
 # Pg. 50
 # Permite especificar um valor atrav�s de um ponteiro em uma escala linear
@@ -615,20 +616,20 @@ from tkinter import *
 
 # Pg. 98
 
-c = Canvas()
-c.pack()
-
-o = c.create_oval(1,1,200,100,outline="blue", width=5,fill="red")
-widget = Button(text="Tk Canvas")
-w = c.create_window(10,120,window=widget,anchor=W)
-l = c.create_line(100,0,120,30,50,60,100,120,fill="black",width=2)
-r = c.create_rectangle(40,150,100,200,fill="white")
-#img = PhotoImage(file="./NelsonHaha2.gif")
-#img = PhotoImage(file="./0398contr2.jpg")
-img = PhotoImage(file="./0398contr2.gif")
-#img = PhotoImage(file="C:/Users/adolfo.correa/Documents/GitHub/UFRJ_Computacao_2/0398contr2.jpg")
-i = c.create_image (150,150,image=img,anchor=NW)
-a = c.create_arc (150,90,250,190,start=30,extent=60, 
-                  outline="green",fill="orange")
-t = c.create_text(200,35,text="Texto\nTexto",font="Arial 22")
-mainloop()
+#c = Canvas()
+#c.pack()
+#
+#o = c.create_oval(1,1,200,100,outline="blue", width=5,fill="red")
+#widget = Button(text="Tk Canvas")
+#w = c.create_window(10,120,window=widget,anchor=W)
+#l = c.create_line(100,0,120,30,50,60,100,120,fill="black",width=2)
+#r = c.create_rectangle(40,150,100,200,fill="white")
+##img = PhotoImage(file="./NelsonHaha2.gif")
+##img = PhotoImage(file="./0398contr2.jpg")
+#img = PhotoImage(file="./0398contr2.gif")
+##img = PhotoImage(file="C:/Users/adolfo.correa/Documents/GitHub/UFRJ_Computacao_2/0398contr2.jpg")
+#i = c.create_image (150,150,image=img,anchor=NW)
+#a = c.create_arc (150,90,250,190,start=30,extent=60, 
+#                  outline="green",fill="orange")
+#t = c.create_text(200,35,text="Texto\nTexto",font="Arial 22")
+#mainloop()
