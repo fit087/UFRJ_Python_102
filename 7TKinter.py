@@ -197,24 +197,24 @@ from tkinter import *
 
 # Pg. 49
 # Um painel de menu. Implementa menus de janela, pulldowns e popups
-class Application(Frame):
-    def __init__(self, master=Tk()):
-        Frame.__init__(self, master)
-        menubar = Menu()
-        filemenu = Menu(menubar, tearoff=0)
-        filemenu.add_command(label="New")
-        filemenu.add_command(label="Open")
-        filemenu.add_command(label="Save")
-        filemenu.add_command(label="Save as...")
-        filemenu.add_command(label="Close")
-        filemenu.add_separator()
-        filemenu.add_command(label="Exit", command=quit)
-        menubar.add_cascade(label="File", menu=filemenu)
-        master.config(menu=menubar)
-        self.pack()
-app = Application()
-#mainloop()
-app.mainloop()
+#class Application(Frame):
+#    def __init__(self, master=Tk()):
+#        Frame.__init__(self, master)
+#        menubar = Menu()
+#        filemenu = Menu(menubar, tearoff=0)
+#        filemenu.add_command(label="New")
+#        filemenu.add_command(label="Open")
+#        filemenu.add_command(label="Save")
+#        filemenu.add_command(label="Save as...")
+#        filemenu.add_command(label="Close")
+#        filemenu.add_separator()
+#        filemenu.add_command(label="Exit", command=quit)
+#        menubar.add_cascade(label="File", menu=filemenu)
+#        master.config(menu=menubar)
+#        self.pack()
+#app = Application()
+##mainloop()
+#app.mainloop()
 
 # Pg. 50
 # Permite especificar um valor atrav�s de um ponteiro em uma escala linear
