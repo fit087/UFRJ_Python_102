@@ -1,4 +1,4 @@
-# UFRJ Computação 2
+# UFRJ Python 102
 Object Oriented Programming Course from the Federal University of Rio de Janeiro.
 
 ## Links
